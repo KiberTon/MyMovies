@@ -12,15 +12,16 @@ import com.kibekin.mymovies.data.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private ArrayList<Movie> movies;
+    private List<Movie> movies;
     private OnPosterClickListener onPosterClickListener;
     private OnReachEndListener onReachEndListener;
 
-    public MovieAdapter(ArrayList<Movie> movies) {
-        this.movies = movies;
+    public MovieAdapter() {
+        movies = new ArrayList<>();
     }
 
     interface OnPosterClickListener {
@@ -37,9 +38,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public void setOnReachEndListener(OnReachEndListener onReachEndListener) {
         this.onReachEndListener = onReachEndListener;
-    }
-
-    public MovieAdapter() {
     }
 
 
@@ -81,17 +79,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         }
     }
 
-    public void setMovies(ArrayList<Movie> movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
         notifyDataSetChanged();
     }
 
-    public void addMovies(ArrayList<Movie> movies) {
+    public void addMovies(List<Movie> movies) {
         this.movies.addAll(movies);
         notifyDataSetChanged();
     }
 
-    public ArrayList<Movie> getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 }
